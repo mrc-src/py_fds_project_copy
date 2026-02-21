@@ -6,6 +6,7 @@ from shelf import Shelf
 
 class Warehouse:
     """
+    Warehouse class for managing all other classes
     The program must create a Warehouse (a class-container for the code) that contains:
         - 10 Shelves that form a node-backed linked list
             ~ each shelf can store up to 4 crates and 1000kgs

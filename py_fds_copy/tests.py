@@ -3,6 +3,9 @@ from warehouse import Shelf, ArrivalQueueNode, Warehouse
 
 
 class ShelfTests(TestCase):
+    """
+    Includes unit tests for most aspects of the program
+    """
     def setUp(self):
         self.shelf = Shelf()
 

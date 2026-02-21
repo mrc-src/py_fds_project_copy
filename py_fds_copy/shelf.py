@@ -1,5 +1,6 @@
 class Shelf:
     """
+    Shelf class for storing crates
     Limitations:
         - store crates in an array
         - up to 4 crates
