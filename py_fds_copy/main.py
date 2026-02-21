@@ -8,7 +8,8 @@ def main():
     This is a translation of the assignment given to us in the
     Fundamentals Data Structures course (original language - C++)
 
-    A copy of the assignment has been included in the .zip
+    A copy of the assignment (the source code for this translation)
+    has been included in the repository (.\fdshw1.cpp)
 
     Short version of the assignment:
         A .txt file is provided with weights and uuids of crates
