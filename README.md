@@ -15,6 +15,12 @@ Original task summary:
 - the shelves are outputted to the standard output as a regular linked list
 - a validation method is executed and printed to the standard output
 
+Core components:
+- Crate - currently a tuple, but might change in order to implement inheritance
+- Shelf - a storage for crates that also serves as a linked list node
+- ArrivalQueueNode - linked list node implemented as a queue in the Warehouse
+- Warehouse - container class for all other modules
+
 ---
 
 ### How to use
