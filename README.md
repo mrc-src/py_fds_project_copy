@@ -28,3 +28,23 @@ Original task summary:
 - enter the following command: py -m main
 - by default, the file 'crates.txt' will be used
 - to process a different file, use: py -m main -filename 'filename.txt'
+
+---
+
+### Requirements met
+- The code in the python modules should abide all python convention - self-explanatory
+- There should be a proper structure of the project - all classes/tests are located in separate files
+- All public methods should be properly documented with docstrings
+- The program should have functionality that reads from/writes to a file
+- The name(s) of the file(s) and/or other important input should not be hard-coded
+- The project should include at least 100 lines of code
+- All of the project files should abide the pep8 rules
+- Unit tests should be included, covering at least 50% of the code
+
+### Requirements left to be implemented
+- Classes forming three-level hierarchy exploring inheritance (“is-a relationship”) (might require redesign)
+- Each class should have only non-public members, the proper getters/setters and if needed validation of the data in the setters
+- There should be at least one operator that is overloaded in at least one of the classes
+- The project should include some manipulation of the data (can be solved by custom implementation of the "sorting floor")
+- All python modules should include a comment at the beginning of the file explaining in short what the file contains
+- The coverage report should not contain information about the coverage of unit test files
