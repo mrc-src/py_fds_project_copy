@@ -50,7 +50,7 @@ Core components:
 - There should be at least one operator that is overloaded in at least one of the classes
 - The project should include some manipulation of the data (can be solved by custom implementation of the "sorting floor")
 - All python modules should include a comment at the beginning of the file explaining in short what the file contains
+- Classes forming three-level hierarchy exploring inheritance (“is-a relationship”) (might require redesign)
 
 ### Requirements left to be implemented
-- Classes forming three-level hierarchy exploring inheritance (“is-a relationship”) (might require redesign)
 - The coverage report should not contain information about the coverage of unit test files
