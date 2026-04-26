@@ -46,8 +46,6 @@ class Shelf:
 
     @next.setter
     def next(self, value: 'Shelf'):
-        if value is None or value is self:
-            raise ValueError('invalid next shelf')
         self.__next = value
 
     def __add__(self, other: tuple[str, int]):
