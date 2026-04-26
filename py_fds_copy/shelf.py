@@ -51,3 +51,9 @@ class Shelf:
 
     def __add__(self, other: tuple[str, int]):
         self.add_crate(other)
+
+    def peek_crate(self):
+        return self.__crates[-1]
+
+    def pop_crate(self):
+        return self.__crates.pop()
