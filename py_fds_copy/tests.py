@@ -11,7 +11,7 @@ class ShelfTests(TestCase):
 
     def test_init(self):
         self.assertEqual([], self.shelf.crates)
-        self.assertEqual(0, self.shelf.total_weight)
+        self.assertEqual(0, self.shelf._total_weight)
         self.assertEqual(None, self.shelf.next)
 
     def test_add_crate_valid(self):

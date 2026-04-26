@@ -7,5 +7,27 @@ class ArrivalQueueNode:
     """
 
     def __init__(self, nxt: 'ArrivalQueueNode' = None):
-        self.crate = None
-        self.next = nxt
+        self.__crate = None
+        self.__next = nxt
+
+    @property
+    def crate(self):
+        return self.__crate
+
+    @crate.setter
+    def crate(self, value: tuple[str, int]):
+        if not (value[0] and value[1] > 0):
+            raise ValueError('invalid crate values')
+        self.__crate = value
+
+    @property
+    def next(self):
+        return self.__next
+
+    @next.setter
+    def next(self, n: 'ArrivalQueueNode'):
+        if n is None:
+            raise ValueError('next node must not be None')
+        if n is self:
+            raise ValueError('next node must be different from current nodes')
+        self.__next = n
