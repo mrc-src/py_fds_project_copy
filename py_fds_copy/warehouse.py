@@ -16,8 +16,8 @@ class Warehouse:
             ~ only defined and still unused, but will be used to sort crates in the future
     """
 
-    # not used. but required by the assignment
-    sortingFloor = []
+    # used to sort the crates to fit as many as possible
+    sorting_floor = []
 
     # the warehouse contains 10 shelves, which form a node-backed Linked List
     shelves_head = None
@@ -47,19 +47,58 @@ class Warehouse:
         # get a copy of the pointer to the first shelf
         copy_shelves_head = self.shelves_head
 
-        # iterate through the entire queue
-        while self.arrival_queue_head is not None:
-            crate = self.arrival_queue_head.crate
+        # loop will be iterating over shelves multiple times
+        # this flag variable stops the loop if current crate cannot be inserted
+        changes: bool = False
 
-            if copy_shelves_head.can_add_crate(crate):
-                # if crate can be added, add it and advance the queue
-                copy_shelves_head.add_crate(crate)
-                self.arrival_queue_head = self.arrival_queue_head.next
+        # try to insert all crates in arrival_queue
+        # stop if a crate cannot be inserted
+        while (self.arrival_queue_head or self.sorting_floor) and changes:
+            changes = False
 
-            else:
-                # check the next shelf
-                # by the assignment, the crates are ordered in such a way that we needn't backtrack
-                copy_shelves_head = copy_shelves_head.next
+            # get current crate and advance arrival_queue
+            current_crate = self.arrival_queue_head.crate
+            self.arrival_queue_head = self.arrival_queue_head.next
+
+            # iterate until we insert crate and there are no leftover
+            # crates from previous insertions
+            while copy_shelves_head and current_crate:
+                if copy_shelves_head.can_add_crate(current_crate):
+                    changes = True
+
+                    # if crate can be added, remove all lighter crates from the stack
+                    while copy_shelves_head.peek_crate():
+                        if copy_shelves_head.peek_crate()[1] < current_crate[1]:
+                            self.sorting_floor.append(copy_shelves_head.pop_crate())
+                        else:
+                            break
+
+                    # add crate to stack
+                    copy_shelves_head.add_crate(current_crate)
+                    current_crate = None
+
+                    # add all possible crates from sorting_floor to shelf
+                    # at the end, crates that could not be inserted (if any)
+                    # will be stored in current_crate
+                    while self.sorting_floor:
+                        if copy_shelves_head.can_add_crate(self.sorting_floor[-1]):
+                            copy_shelves_head += self.sorting_floor.pop()
+                        else:
+                            copy_shelves_head = copy_shelves_head.next
+
+                            # if a crate in the sorting floor cannot be added,
+                            # make it the new current_crate
+                            current_crate = self.sorting_floor.pop()
+                # if crate cannot be added to the current shelf,
+                # try the next shelf
+                else:
+                    copy_shelves_head = copy_shelves_head.next
+            # we can only get to this code snippet if
+            # - we have no more crates to add
+            # - we iterated through all the shelves
+            # if we did iterate through all the shelves, reset the head pointer
+            # to try to pack as many crates as possible
+            copy_shelves_head = self.shelves_head
 
     # validator
     def validate(self) -> str:
