@@ -51,6 +51,4 @@ Core components:
 - The project should include some manipulation of the data (can be solved by custom implementation of the "sorting floor")
 - All python modules should include a comment at the beginning of the file explaining in short what the file contains
 - Classes forming three-level hierarchy exploring inheritance (“is-a relationship”) (might require redesign)
-
-### Requirements left to be implemented
 - The coverage report should not contain information about the coverage of unit test files
