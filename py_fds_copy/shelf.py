@@ -48,3 +48,6 @@ class Shelf:
         if value is None or value is self:
             raise ValueError('invalid next shelf')
         self.__next = value
+
+    def __add__(self, other: tuple[str, int]):
+        self.add_crate(other)
