@@ -18,6 +18,8 @@ Original task summary:
 Core components:
 - Crate - currently a tuple, but might change in order to implement inheritance
 - Shelf - a storage for crates that also serves as a linked list node
+- SteelShelf - child of Shelf with higher capacity and weight limit
+- UnsortedSteelShelf - child of SteelShelf which can store crates in any order regardless of weight
 - ArrivalQueueNode - linked list node implemented as a queue in the Warehouse
 - Warehouse - container class for all other modules
 
