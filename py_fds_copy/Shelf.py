@@ -63,19 +63,3 @@ class Shelf:
         crate = self.__crates.pop()
         self.__total_weight -= crate[1]
         return crate
-
-
-class SteelShelf(Shelf):
-    def __init__(self):
-        super().__init__()
-        self.MAX_WEIGHT = 2000
-        self.MAX_CRATES = 15
-
-
-class UnsortedSteelShelf(SteelShelf):
-    def __init__(self):
-        super().__init__()
-
-    def can_add_crate(self, crate: tuple[str, int]):
-        return self.__total_weight + crate[1] <= self.MAX_WEIGHT
-

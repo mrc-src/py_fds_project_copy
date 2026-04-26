@@ -1,7 +1,9 @@
 from typing import List
 
 from arrival_queue_node import ArrivalQueueNode
-from shelf import Shelf, SteelShelf, UnsortedSteelShelf
+from Shelf import Shelf
+from SteelShelf import SteelShelf
+from UnsortedSteelShelf import UnsortedSteelShelf
 
 
 class Warehouse:
