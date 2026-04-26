@@ -1,3 +1,13 @@
+"""
+This module contains the ArrivalQueueNode class, which
+is responsible for managing the crates read from the text file
+and provide temporary storage for them
+
+This class includes only getters and setters for the
+different properties
+"""
+
+
 class ArrivalQueueNode:
     """
     Arrival Queue Node - a way to create a Linked List
