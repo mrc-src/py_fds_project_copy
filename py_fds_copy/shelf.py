@@ -53,7 +53,13 @@ class Shelf:
         self.add_crate(other)
 
     def peek_crate(self):
+        if len(self.__crates) == 0:
+            return None
         return self.__crates[-1]
 
     def pop_crate(self):
-        return self.__crates.pop()
+        if len(self.__crates) == 0:
+            return None
+        crate = self.__crates.pop()
+        self.__total_weight -= crate[1]
+        return crate
